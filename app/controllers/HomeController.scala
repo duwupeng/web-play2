@@ -18,4 +18,8 @@ class HomeController @Inject()(graySystem: GrayServerService,nativeDao:NativeDao
   def index = Action { implicit request =>
       Ok(views.html.index.render())
   }
+
+  def sandie = Action { implicit request =>
+    Ok(views.html.test.render())
+  }
 }

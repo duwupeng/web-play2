@@ -10,6 +10,8 @@ GET         /                                           controllers.HomeControll
 #GET         /oauth-success                              controllers.OAuth2Controller.success
 
 GET         /home                                       controllers.HomeController.index
+GET         /sandie                                       controllers.HomeController.sandie
+
 # An example controller showing how to use dependency injection
 #GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code
