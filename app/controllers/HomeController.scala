@@ -26,4 +26,12 @@ class HomeController @Inject()(graySystem: GrayServerService,nativeDao:NativeDao
   def verify =  Action { implicit request =>
     Ok(views.html.verify.render())
   }
+
+  def verifyResult=  Action { implicit request =>
+    Ok(views.html.verify_result.render())
+  }
+
+  def verifyResultDetail=  Action { implicit request =>
+    Ok(views.html.verify_result_detail.render())
+  }
 }

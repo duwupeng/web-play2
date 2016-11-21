@@ -9,9 +9,11 @@ GET         /                                           controllers.HomeControll
 #GET         /oauth_code_callback                        controllers.OAuth2Controller.callback(code: Option[String], state: Option[String])
 #GET         /oauth-success                              controllers.OAuth2Controller.success
 
-GET         /home                                       controllers.HomeController.index
-GET         /sandie                                       controllers.HomeController.sandie
-GET         /verify                                       controllers.HomeController.verify
+GET         /home                                        controllers.HomeController.index
+GET         /sandie                                      controllers.HomeController.sandie
+GET         /verify                                      controllers.HomeController.verify
+GET         /verify/result                               controllers.HomeController.verifyResult
+GET         /verify/result/detail                        controllers.HomeController.verifyResultDetail
 
 # An example controller showing how to use dependency injection
 #GET     /count                      controllers.CountController.count
