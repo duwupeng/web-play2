@@ -11,6 +11,7 @@ GET         /                                           controllers.HomeControll
 
 GET         /home                                       controllers.HomeController.index
 GET         /sandie                                       controllers.HomeController.sandie
+GET         /verify                                       controllers.HomeController.verify
 
 # An example controller showing how to use dependency injection
 #GET     /count                      controllers.CountController.count
