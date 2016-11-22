@@ -19,10 +19,6 @@ class HomeController @Inject()(graySystem: GrayServerService,nativeDao:NativeDao
       Ok(views.html.index.render())
   }
 
-  def sandie = Action { implicit request =>
-    Ok(views.html.test.render())
-  }
-
   def verify =  Action { implicit request =>
     Ok(views.html.verify.render())
   }

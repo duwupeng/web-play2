@@ -177,3 +177,17 @@ INSERT INTO `sub_systems` VALUES ('3', 'admin');
 INSERT INTO `sub_systems` VALUES ('4', 'www');
 INSERT INTO `sub_systems` VALUES ('5', 'pai');
 INSERT INTO `sub_systems` VALUES ('6', 'etrade');
+
+
+
+
+
+CREATE TABLE `db_zz`.`agents` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NULL,
+  `product_name` VARCHAR(45) NULL,
+  `level` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
+  `status` INT NULL,
+  `create_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`));

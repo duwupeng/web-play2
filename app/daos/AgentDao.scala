@@ -3,12 +3,15 @@ package daos
 /**
   * Created by eric on 16/11/22.
   */
+import java.util.Date
 import javax.inject.Inject
+
 import play.api.db.slick.DatabaseConfigProvider
 import play.api.db.slick.HasDatabaseConfigProvider
 import slick.driver.JdbcProfile
 import slick.driver.MySQLDriver.api._
 import models._
+
 import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -20,6 +23,8 @@ class AgentsTableDef(tag: Tag) extends Table[models.Agent](tag, "agents") {
   def productName = column[String]("product_name")
   def level = column[String]("level")
   def status= column[Int]("status")
+  def createdAt= column[Date]("created_at")
+  def updatedAt= column[Date]("updated_at")
 
   override def * =
     (id, name, productName, level,status) <>(Agent.tupled, Agent.unapply)
@@ -32,6 +37,6 @@ class Agents @Inject()(protected val dbConfigProvider: DatabaseConfigProvider) e
 
 
   def getAll(id: Long): Future[Seq[Agent]] = {
-    db.run(agents.filter(_.id === id).result.headOption)
+    db.run(agents.filter(_.id === id).result)
   }
 }

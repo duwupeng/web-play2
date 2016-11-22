@@ -4,6 +4,7 @@ import javax.inject._
 
 import play.api.mvc._
 import services.{AgentService}
+import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
  *
