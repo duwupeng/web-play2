@@ -17,6 +17,10 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 class AgentsTableDef(tag: Tag) extends Table[models.Agent](tag, "agents") {
 
+  implicit val JavaUtilDateMapper =
+    MappedColumnType.base[java.util.Date, java.sql.Timestamp] (
+      d => new java.sql.Timestamp(d.getTime),
+      d => new java.util.Date(d.getTime))
 
   def id = column[Long]("id", O.PrimaryKey,O.AutoInc)
   def name = column[String]("name")
@@ -27,7 +31,7 @@ class AgentsTableDef(tag: Tag) extends Table[models.Agent](tag, "agents") {
   def updatedAt= column[Date]("updated_at")
 
   override def * =
-    (id, name, productName, level,status) <>(Agent.tupled, Agent.unapply)
+    (id, name, productName,level,status,createdAt,updatedAt) <>(Agent.tupled, Agent.unapply)
 }
 
 
