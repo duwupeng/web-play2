@@ -25,13 +25,14 @@ class AgentsTableDef(tag: Tag) extends Table[models.Agent](tag, "agents") {
   def id = column[Long]("id", O.PrimaryKey,O.AutoInc)
   def name = column[String]("name")
   def productName = column[String]("product_name")
+  def authorizeCode = column[String]("authorize_code")
   def level = column[String]("level")
-  def status= column[Int]("status")
+  def status= column[String]("status")
   def createdAt= column[Date]("created_at")
   def updatedAt= column[Date]("updated_at")
 
   override def * =
-    (id, name, productName,level,status,createdAt,updatedAt) <>(Agent.tupled, Agent.unapply)
+    (id, name, productName,authorizeCode,level,status,createdAt,updatedAt) <>(Agent.tupled, Agent.unapply)
 }
 
 

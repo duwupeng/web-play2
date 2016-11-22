@@ -188,6 +188,12 @@ CREATE TABLE `db_zz`.`agents` (
   `product_name` VARCHAR(45) NULL,
   `level` VARCHAR(45) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL,
   `status` INT NULL,
-  `create_at` DATETIME NULL,
+  `created_at` DATETIME NULL,
   `updated_at` DATETIME NULL,
   PRIMARY KEY (`id`));
+
+
+ALTER TABLE `db_zz`.`agents`
+CHANGE COLUMN `status` `status` VARCHAR(45) NULL DEFAULT NULL ,
+ADD COLUMN `authorize_code` VARCHAR(45) NULL DEFAULT NULL AFTER `product_name`;
+

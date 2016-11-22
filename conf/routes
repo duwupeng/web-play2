@@ -11,11 +11,11 @@ GET         /                                           controllers.HomeControll
 
 GET         /home                                        controllers.HomeController.index
 
-GET         /verify                                      controllers.HomeController.verify
+GET         /verify                                      controllers.AgentController.verify
 
 GET         /verify/result                               controllers.AgentController.index
 
-GET         /verify/result/detail                        controllers.HomeController.verifyResultDetail
+GET         /verify/result/detail                        controllers.AgentController.verifyResultDetail
 
 # An example controller showing how to use dependency injection
 #GET     /count                      controllers.CountController.count
