@@ -31,7 +31,7 @@ class Agents @Inject()(protected val dbConfigProvider: DatabaseConfigProvider) e
   val agents = TableQuery[AgentsTableDef]
 
 
-  def get(id: Long): Future[Option[Agent]] = {
+  def getAll(id: Long): Future[Seq[Agent]] = {
     db.run(agents.filter(_.id === id).result.headOption)
   }
 }

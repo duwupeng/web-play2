@@ -2,18 +2,20 @@ package controllers
 
 import javax.inject._
 
-import daos.NativeDao
 import play.api.mvc._
-import services.GrayServerService
+import services.{AgentService}
 
 /**
  *
  * @author Eric on 2016/7/21 15:55
  */
 @Singleton
-class AgentController @Inject()(graySystem: GrayServerService) extends Controller {
+class AgentController @Inject()(agentService: AgentService) extends Controller {
 
-  def index = Action { implicit request =>
-      Ok(views.html.index.render())
+  def index = Action.async { implicit request =>
+    agentService.listAllAgents map { grayConfigs =>
+      Ok(views.html.verify_result.render())
+    }
   }
+
 }
